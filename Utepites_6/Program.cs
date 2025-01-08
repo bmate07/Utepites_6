@@ -10,7 +10,7 @@ namespace Utepites_6
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
+            Console.WriteLine("Hallo");
         }
     }
 }
