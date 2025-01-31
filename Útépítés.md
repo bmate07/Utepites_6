@@ -1,4 +1,4 @@
-# Útépítés
+# Útépítés -->
 Az Alsó és Felső várost összekötő út 1 000 m hosszú részének a felújításán dolgoznak. Ennek a szakasznak a forgalmát figyeljük egy nap néhány óráján keresztül. Az említett szakaszon előzési tilalom van érvényben.
 
 A forgalmat a forgalom.txt állomány tartalmazza. Első sorában a megfigyelési időszakban áthaladó járművek száma (legfeljebb 2000) látható, a továbbiakban pedig soronként egy áthaladó jármű adatai olvashatók időrendben. Egy sorban az első három szám azt az időpontot jelöli (óra, perc, másodperc), amikor a jármű belép a vizsgált útszakaszra. A következő szám jelöli, hogy a jármű az érintett távolságot hány másodperc alatt tenné meg (legfeljebb 300) – a belépéskor mért sebességgel –, ha haladását semmi nem akadályozná. Ezt egy betű követi, amely jelzi, hogy a jármű melyik város irányából érkezett. Ennek megfelelően a betű A vagy F lehet. Az egyes adatokat pontosan egy szóköz választja el egymástól.
