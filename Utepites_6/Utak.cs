@@ -22,7 +22,7 @@ namespace Utepites_6
         internal void MelyikVarosFele(int keresettAutoSorszama)
         {
             Auto keresettAuto = autok[keresettAutoSorszama - 1];
-            Console.WriteLine("\t\t-A {0} sorszámú autó {1} irányba halad", keresettAutoSorszama, keresettAuto.irany);
+            Console.WriteLine("\t\t-A(z) {0} sorszámú autó \"{1}\" irányba halad", keresettAutoSorszama, keresettAuto.irany);
         }
 
         private void Beolvas()
@@ -40,6 +40,27 @@ namespace Utepites_6
 
                 autok.Add(new Auto(ora, perc, mp, idealisAthaladasiIdoPercben, irany));
             }
+        }
+
+        internal void UtolsoKetJarmu(string irany)
+        {
+
+            var lekerdezes =
+                (from auto in autok
+                 where auto.irany == irany
+                 select auto).ToList();
+
+            Auto utolsoAuto = lekerdezes[lekerdezes.Count - 1];
+            Auto utolsoElottiAuto = lekerdezes[lekerdezes.Count - 2];
+
+            TimeSpan idokulonbseg = utolsoAuto.belepesiIdopont - utolsoElottiAuto.belepesiIdopont;
+            Console.WriteLine("\t-A két utolsó autó közötti időkülönbség {0} mp \"{1}\" irányban", idokulonbseg.TotalSeconds, irany);
+
+        }
+
+        internal void TizLeggyorsabbA()
+        {
+
         }
     }
 }

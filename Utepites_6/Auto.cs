@@ -13,7 +13,7 @@ namespace Utepites_6
         public int mp;
         public TimeSpan belepesiIdopont;
         public string irany;
-        private int idealisAthaladasiIdoPercben;
+        public int idealisAthaladasiIdoPercben;
 
         public Auto(int ora, int perc, int mp, int idealisAthaladasiIdoPercben, string irany)
         {
@@ -22,6 +22,7 @@ namespace Utepites_6
             this.mp = mp;
             this.idealisAthaladasiIdoPercben = idealisAthaladasiIdoPercben;
             this.irany = irany;
+            this.belepesiIdopont = new TimeSpan(ora, perc, mp);
         }
     }
 }

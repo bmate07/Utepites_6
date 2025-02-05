@@ -21,6 +21,21 @@ namespace Utepites_6
             int keresettAutoSorszama = int.Parse(Console.ReadLine());
             utak.MelyikVarosFele(keresettAutoSorszama);
 
+            Console.WriteLine("---------------------------------");
+
+            Console.WriteLine("3. feladat");
+            string irany = "A";
+            utak.UtolsoKetJarmu(irany);
+
+            Console.WriteLine("---------------------------------");
+
+            Console.WriteLine("4. feladat");
+
+            Console.WriteLine("---------------------------------");
+
+            Console.WriteLine("5. feladat");
+            utak.TizLeggyorsabbA();
+
             Console.ReadLine();
         }
     }
