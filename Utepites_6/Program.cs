@@ -31,10 +31,13 @@ namespace Utepites_6
 
             Console.WriteLine("4. feladat");
 
+
             Console.WriteLine("---------------------------------");
 
             Console.WriteLine("5. feladat");
-            utak.TizLeggyorsabbA();
+            utak.TizLeggyorsabb();
+
+            Console.WriteLine("---------------------------------");
 
             Console.ReadLine();
         }

@@ -35,10 +35,10 @@ namespace Utepites_6
                 int ora = int.Parse(oszlopok[0]);
                 int perc = int.Parse(oszlopok[1]);
                 int mp = int.Parse(oszlopok[2]);
-                int idealisAthaladasiIdoPercben = int.Parse(oszlopok[3]);
+                int idealisAthaladasiIdoMasodPercben = int.Parse(oszlopok[3]);
                 string irany = oszlopok[4];
 
-                autok.Add(new Auto(ora, perc, mp, idealisAthaladasiIdoPercben, irany));
+                autok.Add(new Auto(ora, perc, mp, idealisAthaladasiIdoMasodPercben, irany));
             }
         }
 
@@ -58,9 +58,24 @@ namespace Utepites_6
 
         }
 
-        internal void TizLeggyorsabbA()
+        internal void TizLeggyorsabb()
         {
+            List<string> iranyok = new List<string>() { "A", "F" };
 
+            foreach (string irany in iranyok)
+            {
+                Console.WriteLine("\n\t-Irány: {0}", irany);
+                var lekerdezes = 
+                    (from auto in autok
+                     where auto.irany == irany
+                     orderby auto.sebesseg descending
+                     select auto).Take(10);
+
+                foreach (var sor in lekerdezes)
+                {
+                    Console.WriteLine("\t\t-{0:0.0} m/s, {1}", sor.sebesseg, sor.belepesiIdopont);
+                }
+            }
         }
     }
 }
