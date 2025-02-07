@@ -45,7 +45,6 @@ namespace Utepites_6
 
         internal void UtolsoKetJarmu(string irany)
         {
-
             var lekerdezes =
                 (from auto in autok
                  where auto.irany == irany
@@ -81,16 +80,6 @@ namespace Utepites_6
 
         internal void OrankentIranyonkent()
         {
-            //var lekerdezes =
-            //    autok
-            //    .GroupBy(b => (b.belepesiIdopont.Hours, b.irany))
-            //    .Select(b => new 
-            //    {
-            //        ora = b.Key,
-            //        irany = b.Key,
-            //        mennyiseg = b.Key,
-            //    });
-
             var lekerdezes =
                     autok
                     .GroupBy(b => (b.belepesiIdopont.Hours, b.irany))
@@ -105,6 +94,26 @@ namespace Utepites_6
             {
                 Console.WriteLine("\t-Óra: {0} Irany: {1} Mennyiség: {2}", sor.Ora, sor.Irany, sor.Mennyiseg);
             }
+        }
+
+        internal void AdatokFajlba()
+        {
+            string nev = "also.txt";
+            List<string> adatok = new List<string>();
+
+            foreach (var auto in autok)
+            {
+                if (auto.irany == "A")
+                {
+                    string sor = auto.belepesiIdopont.Hours.ToString("D2")
+                        + " " + auto.belepesiIdopont.Minutes.ToString("D2")
+                        + " " + auto.belepesiIdopont.Seconds.ToString("D2");
+
+                    adatok.Add(sor);
+                }
+            }
+
+            File.WriteAllLines(nev, adatok);
         }
     }
 }

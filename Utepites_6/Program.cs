@@ -39,6 +39,9 @@ namespace Utepites_6
 
             Console.WriteLine("---------------------------------");
 
+            // 6. Feladat
+            utak.AdatokFajlba();
+
             Console.ReadLine();
         }
     }
