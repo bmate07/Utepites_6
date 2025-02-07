@@ -30,7 +30,7 @@ namespace Utepites_6
             Console.WriteLine("---------------------------------");
 
             Console.WriteLine("4. feladat");
-
+            utak.OrankentIranyonkent();
 
             Console.WriteLine("---------------------------------");
 

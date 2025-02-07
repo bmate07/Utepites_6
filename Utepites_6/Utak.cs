@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,7 +66,7 @@ namespace Utepites_6
             foreach (string irany in iranyok)
             {
                 Console.WriteLine("\n\t-Irány: {0}", irany);
-                var lekerdezes = 
+                var lekerdezes =
                     (from auto in autok
                      where auto.irany == irany
                      orderby auto.sebesseg descending
@@ -75,6 +76,34 @@ namespace Utepites_6
                 {
                     Console.WriteLine("\t\t-{0:0.0} m/s, {1}", sor.sebesseg, sor.belepesiIdopont);
                 }
+            }
+        }
+
+        internal void OrankentIranyonkent()
+        {
+            //var lekerdezes =
+            //    autok
+            //    .GroupBy(b => (b.belepesiIdopont.Hours, b.irany))
+            //    .Select(b => new 
+            //    {
+            //        ora = b.Key,
+            //        irany = b.Key,
+            //        mennyiseg = b.Key,
+            //    });
+
+            var lekerdezes =
+                    autok
+                    .GroupBy(b => (b.belepesiIdopont.Hours, b.irany))
+                    .Select(g => new
+                    {
+                        Ora = g.Key.Hours,
+                        Irany = g.Key.irany,
+                        Mennyiseg = g.Count()
+                    });
+
+            foreach (var sor in lekerdezes)
+            {
+                Console.WriteLine("\t-Óra: {0} Irany: {1} Mennyiség: {2}", sor.Ora, sor.Irany, sor.Mennyiseg);
             }
         }
     }
