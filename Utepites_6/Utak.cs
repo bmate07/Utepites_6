@@ -55,7 +55,6 @@ namespace Utepites_6
 
             TimeSpan idokulonbseg = utolsoAuto.belepesiIdopont - utolsoElottiAuto.belepesiIdopont;
             Console.WriteLine("\t-A két utolsó autó közötti időkülönbség {0} mp \"{1}\" irányban", idokulonbseg.TotalSeconds, irany);
-
         }
 
         internal void TizLeggyorsabb()
