@@ -125,7 +125,7 @@ namespace Utepites_6
 
             //File.WriteAllLines(nev, adatok);
 
-            List<Auto> alsoFele = autok.Where(j => j.irany == "A" ).ToList();
+            List<Auto> alsoFele = autok.Where(j => j.irany == "A").ToList();
             List<string> kilepesek = new List<string>();
             DateTime utolsoKilepes = DateTime.MinValue;
 
