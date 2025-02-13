@@ -39,7 +39,7 @@ namespace Utepites_6
 
             Console.WriteLine("---------------------------------");
 
-            // 6. Feladat
+            Console.WriteLine("6. feladat");
             utak.AdatokFajlba();
 
             Console.ReadLine();

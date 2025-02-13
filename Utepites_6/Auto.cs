@@ -12,8 +12,10 @@ namespace Utepites_6
         public int perc;
         public int mp;
         public TimeSpan belepesiIdopont;
+        public DateTime belepesiIdo;
         public string irany;
         public int idealisAthaladasiIdoMasodPercben;
+        public int realisAthaladasiIdoMasodpercben;
         public double sebesseg;
 
         public Auto(int ora, int perc, int mp, int idealisAthaladasiIdoMasodPercben, string irany)
@@ -22,8 +24,10 @@ namespace Utepites_6
             this.perc = perc;
             this.mp = mp;
             this.idealisAthaladasiIdoMasodPercben = idealisAthaladasiIdoMasodPercben;
+            this.realisAthaladasiIdoMasodpercben = idealisAthaladasiIdoMasodPercben;
             this.irany = irany;
             this.belepesiIdopont = new TimeSpan(ora, perc, mp);
+            this.belepesiIdo = new DateTime(1, 1, 1, ora, perc, mp);
             this.sebesseg = SebessegSzamolo();
         }
 

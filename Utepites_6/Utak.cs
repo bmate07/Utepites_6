@@ -22,8 +22,18 @@ namespace Utepites_6
 
         internal void MelyikVarosFele(int keresettAutoSorszama)
         {
-            Auto keresettAuto = autok[keresettAutoSorszama - 1];
-            Console.WriteLine("\t\t-A(z) {0} sorszámú autó \"{1}\" irányba halad", keresettAutoSorszama, keresettAuto.irany);
+            int min = 1;
+            int max = autok.Count;
+
+            if (min <= keresettAutoSorszama && keresettAutoSorszama <= max)
+            {
+                Auto keresettAuto = autok[keresettAutoSorszama - 1];
+                Console.WriteLine("\t\t-A(z) {0} sorszámú autó \"{1}\" irányba halad", keresettAutoSorszama, keresettAuto.irany);
+            }
+            else
+            {
+                Console.WriteLine("A sorszám nem megfelelő!");
+            }
         }
 
         private void Beolvas()
@@ -97,22 +107,40 @@ namespace Utepites_6
 
         internal void AdatokFajlba()
         {
-            string nev = "also.txt";
-            List<string> adatok = new List<string>();
+            //string nev = "also2.txt";
+            //List<string> adatok = new List<string>();
 
-            foreach (var auto in autok)
+            //foreach (var auto in autok)
+            //{
+            //    if (auto.irany == "A")
+            //    {
+            //        string sor = auto.belepesiIdopont.Hours.ToString("D2")
+            //            + " " + auto.belepesiIdopont.Minutes.ToString("D2")
+            //            + " " + auto.belepesiIdopont.Seconds.ToString("D2");
+
+            //        adatok.Add(sor);
+            //    }
+            //}
+            //Console.WriteLine("\t-Az idők kiírása a txt fájlba megtörtént.");
+
+            //File.WriteAllLines(nev, adatok);
+
+            List<Auto> alsoFele = autok.Where(j => j.irany == "A" ).ToList();
+            List<string> kilepesek = new List<string>();
+            DateTime utolsoKilepes = DateTime.MinValue;
+
+            foreach (var auto in alsoFele)
             {
-                if (auto.irany == "A")
-                {
-                    string sor = auto.belepesiIdopont.Hours.ToString("D2")
-                        + " " + auto.belepesiIdopont.Minutes.ToString("D2")
-                        + " " + auto.belepesiIdopont.Seconds.ToString("D2");
+                DateTime kilepesIdo = auto.belepesiIdo.AddSeconds(auto.ora);
+                if (kilepesIdo < utolsoKilepes)
+                    kilepesIdo = utolsoKilepes;
 
-                    adatok.Add(sor);
-                }
+                utolsoKilepes = kilepesIdo;
+                kilepesek.Add($"{kilepesIdo.Hour} {kilepesIdo.Minute} {kilepesIdo.Second}");
             }
 
-            File.WriteAllLines(nev, adatok);
+            File.WriteAllLines("also.txt", kilepesek);
+            Console.WriteLine("\t-Kilépési idők kiírva az also.txt fájlba.");
         }
     }
 }
