@@ -28,7 +28,9 @@ namespace Utepites_6
             if (min <= keresettAutoSorszama && keresettAutoSorszama <= max)
             {
                 Auto keresettAuto = autok[keresettAutoSorszama - 1];
-                Console.WriteLine("\t\t-A(z) {0} sorszámú autó \"{1}\" irányba halad", keresettAutoSorszama, keresettAuto.irany);
+                string ellenkezoIrany = keresettAuto.irany == "A" ? "F" : "A";
+
+                Console.WriteLine("\t\t-A(z) {0} sorszámú autó \"{1}\" irányba halad.", keresettAutoSorszama, ellenkezoIrany);
             }
             else
             {
@@ -64,7 +66,7 @@ namespace Utepites_6
             Auto utolsoElottiAuto = lekerdezes[lekerdezes.Count - 2];
 
             TimeSpan idokulonbseg = utolsoAuto.belepesiIdopont - utolsoElottiAuto.belepesiIdopont;
-            Console.WriteLine("\t-A két utolsó autó közötti időkülönbség {0} mp \"{1}\" irányban", idokulonbseg.TotalSeconds, irany);
+            Console.WriteLine("\t-A két utolsó autó közötti időkülönbség {0} mp \"{1}\" irányban.", idokulonbseg.TotalSeconds, irany);
         }
 
         internal void TizLeggyorsabb()
@@ -101,7 +103,7 @@ namespace Utepites_6
 
             foreach (var sor in lekerdezes)
             {
-                Console.WriteLine("\t-Óra: {0} Irany: {1} Mennyiség: {2}", sor.Ora, sor.Irany, sor.Mennyiseg);
+                Console.WriteLine("\t-Óra: {0} Irány: {1} Mennyiség: {2}", sor.Ora, sor.Irany, sor.Mennyiseg);
             }
         }
 
